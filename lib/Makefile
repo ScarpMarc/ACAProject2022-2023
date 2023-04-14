@@ -98,7 +98,7 @@ MK_SUBDIRS =
 
 MK_LIBRARIES_C = $(lib1) $(lib2) $(lib3)
 
-include ../../Makefile-template.mk
+include ../Makefile-template.mk
 
 clean.local:
 	rm -f $(lib1) $(lib2) $(lib3)
