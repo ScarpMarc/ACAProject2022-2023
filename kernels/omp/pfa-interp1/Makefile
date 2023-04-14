@@ -80,7 +80,7 @@ CFLAGS ?= -std=gnu99 -pedantic -Wall -O3 -fopenmp -DINPUT_SIZE=INPUT_SIZE_$(INPU
 
 exe1 = sar-pfa-interp1
 
-libdir = ../../../../lib
+libdir = ../../../lib
 sar_libdir = ../lib
 libs   = $(sar_libdir)/libsar.a $(libdir)/libtiming.a
 
@@ -96,7 +96,7 @@ MK_SUBDIRS =
 
 MK_PROGRAMS_C = $(exe1)
 
-include ../../../../../Makefile-template.mk
+include ../../../Makefile-template.mk
 
 #****************************************************************************
 

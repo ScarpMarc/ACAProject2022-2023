@@ -82,7 +82,7 @@ CUFLAGS ?= -arch=sm_20 -O3 -DINPUT_SIZE=INPUT_SIZE_$(INPUT_SIZE)
 
 exe1 = sar-backprojection
 
-libdir = ../../../../lib
+libdir = ../../../lib
 sar_libdir = ../lib
 libs   = $(sar_libdir)/libsar.a $(libdir)/libtiming.a
 
@@ -100,7 +100,7 @@ MK_SUBDIRS =
 
 MK_PROGRAMS_C_CU = $(exe1)
 
-include ../../../../../Makefile-template.mk
+include ../../../Makefile-template.mk
 
 #****************************************************************************
 

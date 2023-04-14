@@ -76,6 +76,6 @@ MK_SUBDIRS = \
 	pfa-interp2 \
 	bp
 
-include ../../../../Makefile-template.mk
+include ../../Makefile-template.mk
 
 #****************************************************************************
