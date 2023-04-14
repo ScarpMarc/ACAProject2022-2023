@@ -343,8 +343,8 @@ $(foreach x,$(MK_LIBRARIES_C) $(MK_LIBRARIES_CXX),$(eval $(call _library_templat
 #****************************************************************************
 # Additional dependencies for targets
 #****************************************************************************
-
-all : $(MK_PROGRAMS_C) $(MK_PROGRAMS_CXX) $(MK_PROGRAMS_C_CU) $(MK_LIBRARIES_C) $(MK_LIBRARIES_CXX)
+# $(MK_PROGRAMS_C_CU) # Removed CUDA compilation for now
+all : $(MK_PROGRAMS_C) $(MK_PROGRAMS_CXX) $(MK_LIBRARIES_C) $(MK_LIBRARIES_CXX)
 
 install : all
 install.local : all
