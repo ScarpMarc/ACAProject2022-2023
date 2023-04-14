@@ -3,7 +3,7 @@
 #*BeginCopyright*************************************************************
 #
 # $HeadURL$
-# $Id: 36b56878835ca0877d3c8510459d1e7e1f382dde $
+# $Id: 1e35f8d60e86c44c4aef0b13b4fc27463faca7af $
 #
 #----------------------------------------------------------------------------
 # Part of PERFECT Benchmark Suite (hpc.pnnl.gov/projects/PERFECT/)
@@ -69,15 +69,39 @@
 #****************************************************************************
 # $HeadURL$
 #****************************************************************************
-ifdef SER_ONLY
-MK_SUBDIRS = \
-        ser   
-else
-MK_SUBDIRS = \
-	omp \
-	ser \
-	cuda
-endif
-include ../Makefile-template.mk
+
+
+
+CC ?= gcc
+CFLAGS ?= -std=c89 -pedantic -ansi -Wall -g -O3
+
+#****************************************************************************
+
+lib1 = libtiming.a
+
+$(lib1)_SRCS = timing/timer.c
+$(lib1)_CFLAGS =
+
+lib2 = libxmem.a
+
+$(lib2)_SRCS = xmem/xmalloc.c
+$(lib2)_CFLAGS =
+
+lib3 = liboctave.a
+
+$(lib3)_SRCS = octave/octave.c
+$(lib3)_CFLAGS = 
+
+#****************************************************************************
+
+MK_SUBDIRS =
+
+MK_LIBRARIES_C = $(lib1) $(lib2) $(lib3)
+
+include ../../Makefile-template.mk
+
+clean.local:
+	rm -f $(lib1) $(lib2) $(lib3)
+
 
 #****************************************************************************

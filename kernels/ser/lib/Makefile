@@ -88,7 +88,7 @@ MK_SUBDIRS =
 
 MK_LIBRARIES_C = $(lib1)
 
-include ../../../../../Makefile-template.mk
+include ../../../Makefile-template.mk
 
 #****************************************************************************
 

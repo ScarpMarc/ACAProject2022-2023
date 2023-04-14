@@ -73,6 +73,6 @@
 MK_SUBDIRS = \
 	kernels
 
-include ../../Makefile-template.mk
+include Makefile-template.mk
 
 #****************************************************************************

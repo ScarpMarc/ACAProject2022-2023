@@ -79,7 +79,7 @@ CFLAGS ?= -std=c89 -pedantic -ansi -Wall -g -O3 -DINPUT_SIZE=INPUT_SIZE_$(INPUT_
 
 exe1 = sar-backprojection
 
-libdir = ../../../../lib
+libdir = ../../../lib
 sar_libdir = ../lib
 libs   = $(sar_libdir)/libsar.a $(libdir)/libtiming.a
 
@@ -95,7 +95,7 @@ MK_SUBDIRS =
 
 MK_PROGRAMS_C = $(exe1)
 
-include ../../../../../Makefile-template.mk
+include ../../../Makefile-template.mk
 
 #****************************************************************************
 
