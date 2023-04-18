@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "ap_fixed.h": "c",
+        "xstring": "c",
+        "xutility": "c"
+    }
+}

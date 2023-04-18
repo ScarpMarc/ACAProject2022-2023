@@ -69,6 +69,7 @@
 #include "sar_backprojection.h"
 #include <math.h>
 #include <stdio.h>
+#include "../ACAProject2022-2023/HLS_arbitrary_Precision_Types/include/ap_fixed.h"
 
 void sar_backprojection(
     complex image[BP_NPIX_Y][BP_NPIX_X],
