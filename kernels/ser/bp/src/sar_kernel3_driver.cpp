@@ -219,7 +219,7 @@ int main(int argc, char **argv)
 void read_bp_data_file(
     const char *input_filename,
     const char *input_directory,
-    complex (*upsampled_data)[N_RANGE_UPSAMPLED],
+    const std::array<complex,N_RANGE_UPSAMPLED> (*upsampled_data),
     position *platpos,
     double *fc,
     double *R0,
@@ -238,10 +238,10 @@ void read_bp_data_file(
     assert(R0 != NULL);
     assert(dR != NULL);
 
-    //concat_dir_and_filename(
-    //    dir_and_filename,
-    //    input_directory,
-    //    input_filename);
+    concat_dir_and_filename(
+        dir_and_filename,
+        input_directory,
+        input_filename);
 
     fp = fopen(dir_and_filename, "rb");
     if (fp == NULL)
@@ -279,7 +279,7 @@ void read_bp_data_file(
         exit(EXIT_FAILURE);
     }
 
-    if ((n = fread(upsampled_data, sizeof(complex), num_data_elements, fp)) !=
+    if ((n = fread((void*)upsampled_data, sizeof(complex), num_data_elements, fp)) !=
         num_data_elements)
     {
         fprintf(stderr, "Error: Unable to read phase history data from %s.\n",

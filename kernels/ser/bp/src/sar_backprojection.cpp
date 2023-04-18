@@ -73,7 +73,7 @@
 
 void sar_backprojection(
     std::array<complex,BP_NPIX_X> *image,
-    complex (* const data)[N_RANGE_UPSAMPLED],
+    const std::array<complex,N_RANGE_UPSAMPLED> (*upsampled_data),
     const position platpos[N_PULSES],
     double ku,
     double R0,
@@ -111,8 +111,8 @@ void sar_backprojection(
                     /* interpolation weight */
                     const float w = (float) (bin - (double) bin_floor);
                     /* linearly interpolate to obtain a sample at bin */
-                    sample.re = (1.0f-w)*data[p][bin_floor].re + w*data[p][bin_floor+1].re;
-                    sample.im = (1.0f-w)*data[p][bin_floor].im + w*data[p][bin_floor+1].im;
+                    sample.re = (1.0f-w)*upsampled_data[p][bin_floor].re + w*upsampled_data[p][bin_floor+1].re;
+                    sample.im = (1.0f-w)*upsampled_data[p][bin_floor].im + w*upsampled_data[p][bin_floor+1].im;
                     /* compute the complex exponential for the matched filter */
                     matched_filter.re = cos(2.0 * ku * R);
                     matched_filter.im = sin(2.0 * ku * R);
