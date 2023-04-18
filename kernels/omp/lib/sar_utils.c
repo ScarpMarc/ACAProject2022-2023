@@ -119,7 +119,7 @@ double calculate_snr(
    }
 }
 
-void *xmalloc(size_t size, const char *file, int line)
+/*void *xmalloc(size_t size, const char *file, int line)
 {
    void *x = malloc(size);
    if (x == NULL)
@@ -129,7 +129,7 @@ void *xmalloc(size_t size, const char *file, int line)
       exit(EXIT_FAILURE);
    }
    return x;
-}
+}*/
 
 void concat_dir_and_filename(
    char dir_and_filename[MAX_DIR_AND_FILENAME_LEN],

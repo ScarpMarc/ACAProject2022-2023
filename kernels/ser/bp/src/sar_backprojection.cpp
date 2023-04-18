@@ -69,10 +69,10 @@
 #include "sar_backprojection.h"
 #include <math.h>
 #include <stdio.h>
-#include "../ACAProject2022-2023/HLS_arbitrary_Precision_Types/include/ap_fixed.h"
+#include "../../../HLS_arbitrary_Precision_Types/include/ap_fixed.h"
 
 void sar_backprojection(
-    complex image[BP_NPIX_Y][BP_NPIX_X],
+    std::array<complex,BP_NPIX_X> *image,
     complex (* const data)[N_RANGE_UPSAMPLED],
     const position platpos[N_PULSES],
     double ku,

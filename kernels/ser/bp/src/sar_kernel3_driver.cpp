@@ -72,7 +72,9 @@
 #include <math.h>
 #include <assert.h>
 
-#include "../ACAProject2022-2023/HLS_arbitrary_Precision_Types/include/ap_fixed.h"
+#include <array>
+
+#include "../../../HLS_arbitrary_Precision_Types/include/ap_fixed.h"
 
 
 #include "sar_backprojection.h"
@@ -101,7 +103,7 @@
 static void read_bp_data_file(
     const char *input_filename,
     const char *input_directory,
-    complex (*upsampled_data)[N_RANGE_UPSAMPLED],
+    const std::array<complex,N_RANGE_UPSAMPLED> (*upsampled_data),
     position *platpos,
     double *fc,
     double *R0,
@@ -109,12 +111,12 @@ static void read_bp_data_file(
 
 int main(int argc, char **argv)
 {
-    complex (*data)[N_RANGE_UPSAMPLED] = NULL;
-    complex (*image)[BP_NPIX_X] = NULL;
+    std::array<complex, N_RANGE_UPSAMPLED> (*data) = NULL;
+    std::array<complex, BP_NPIX_X> (*image) = NULL;
     const char *input_directory = NULL;
     position *platpos = NULL;
 #ifdef ENABLE_CORRECTNESS_CHECKING
-    complex (*gold_image)[BP_NPIX_X] = NULL;
+    std::array<complex, BP_NPIX_X> (*gold_image) = NULL;
 #endif
 
     const size_t num_data_elements = N_PULSES * N_RANGE_UPSAMPLED;
@@ -131,11 +133,11 @@ int main(int argc, char **argv)
 
     input_directory = argv[1];
     
-    data = XMALLOC(sizeof(complex) * num_data_elements);
-    image = XMALLOC(sizeof(complex) * num_image_elements);
-    platpos = XMALLOC(sizeof(position) * N_PULSES);
+    data = (std::array<complex, N_RANGE_UPSAMPLED>*)malloc(sizeof(complex) * num_data_elements);
+    image = (std::array<complex, BP_NPIX_X>*)malloc(sizeof(complex) * num_image_elements);
+    platpos = (position*)malloc(sizeof(position) * N_PULSES);
 #ifdef ENABLE_CORRECTNESS_CHECKING
-    gold_image = XMALLOC(sizeof(complex) * num_image_elements);
+    gold_image = (std::array<complex, BP_NPIX_X>*)malloc(sizeof(complex) * num_image_elements);
 #endif
 
     read_bp_data_file(
@@ -236,10 +238,10 @@ void read_bp_data_file(
     assert(R0 != NULL);
     assert(dR != NULL);
 
-    concat_dir_and_filename(
-        dir_and_filename,
-        input_directory,
-        input_filename);
+    //concat_dir_and_filename(
+    //    dir_and_filename,
+    //    input_directory,
+    //    input_filename);
 
     fp = fopen(dir_and_filename, "rb");
     if (fp == NULL)

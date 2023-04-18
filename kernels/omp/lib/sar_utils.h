@@ -113,8 +113,8 @@ void read_data_file(
    size_t num_bytes);
 
 /* error checked memory allocation */
-#define XMALLOC(size) xmalloc(size, __FILE__, __LINE__)
-void *xmalloc(size_t size, const char *file, int line);
+/*#define XMALLOC(size) xmalloc(size, __FILE__, __LINE__)
+void *xmalloc(size_t size, const char *file, int line);*/
 
 #define FREE_AND_NULL(x) \
    do { \

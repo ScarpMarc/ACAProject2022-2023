@@ -72,8 +72,8 @@
 
 INPUT_SIZE ?= MEDIUM
 
-CC ?= gcc
-CFLAGS ?= -std=c89 -pedantic -ansi -Wall -g -O3 -DINPUT_SIZE=INPUT_SIZE_$(INPUT_SIZE)
+CC ?= g++
+CFLAGS ?= -Wall -g -O3 -DINPUT_SIZE=INPUT_SIZE_$(INPUT_SIZE) #-pedantic
 
 #****************************************************************************
 
@@ -83,8 +83,8 @@ libdir = ../../../lib
 sar_libdir = ../lib
 libs   = $(sar_libdir)/libsar.a $(libdir)/libtiming.a
 
-$(exe1)_SRCS = src/sar_kernel3_driver.c src/sar_backprojection.c
-$(exe1)_CFLAGS = -I$(libdir) -I$(sar_libdir) -I./src/
+$(exe1)_SRCS = src/sar_kernel3_driver.cpp src/sar_backprojection.cpp
+$(exe1)_CFLAGS = -I$(libdir) -I$(sar_libdir) -I./src/ -I ../../../HLS_arbitrary_Precision_Types/include/
 $(exe1)_LDFLAGS =
 $(exe1)_LIBS = $(libs)
 $(exe1)_LDADD = -lm

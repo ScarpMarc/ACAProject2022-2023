@@ -72,12 +72,14 @@
 #include "sar_params.h"
 #include "sar_utils.h"
 
+#include <array>
+
 /*
  * Kernel 3: SAR backprojection
  */
 void sar_backprojection(
-    complex image[BP_NPIX_Y][BP_NPIX_X],
-    complex (* const data)[N_RANGE_UPSAMPLED],
+    std::array<complex,BP_NPIX_X> *image,
+    const std::array<complex,N_RANGE_UPSAMPLED> (*upsampled_data),
     const position platpos[N_PULSES],
     double ku,
     double R0,

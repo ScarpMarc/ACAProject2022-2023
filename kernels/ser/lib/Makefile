@@ -72,14 +72,14 @@
 
 INPUT_SIZE ?= MEDIUM
 
-CC ?= gcc
-CFLAGS ?= -std=c89 -pedantic -ansi -Wall -g -O3 -DINPUT_SIZE=INPUT_SIZE_$(INPUT_SIZE)
+CC ?= g++
+CFLAGS ?= -Wall -g -O3 -DINPUT_SIZE=INPUT_SIZE_$(INPUT_SIZE)
 
 #****************************************************************************
 
 lib1 = libsar.a
 
-$(lib1)_SRCS = sar_utils.c
+$(lib1)_SRCS = sar_utils.cpp
 $(lib1)_CFLAGS =
 
 #****************************************************************************

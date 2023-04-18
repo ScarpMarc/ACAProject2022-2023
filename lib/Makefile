@@ -72,24 +72,24 @@
 
 
 
-CC ?= gcc
-CFLAGS ?= -std=c89 -pedantic -ansi -Wall -g -O3
+CC ?= g++
+CFLAGS ?= -Wall -g -O3 #-pedantic
 
 #****************************************************************************
 
 lib1 = libtiming.a
 
-$(lib1)_SRCS = timing/timer.c
+$(lib1)_SRCS = timing/timer.cpp
 $(lib1)_CFLAGS =
 
 lib2 = libxmem.a
 
-$(lib2)_SRCS = xmem/xmalloc.c
+$(lib2)_SRCS = xmem/xmalloc.cpp
 $(lib2)_CFLAGS =
 
 lib3 = liboctave.a
 
-$(lib3)_SRCS = octave/octave.c
+$(lib3)_SRCS = octave/octave.cpp
 $(lib3)_CFLAGS = 
 
 #****************************************************************************
