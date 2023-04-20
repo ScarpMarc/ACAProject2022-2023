@@ -6,7 +6,7 @@ set(sources src/sar_backprojection.cpp src/sar_kernel3_driver.cpp)
 
 add_executable(BP_Ser ${sources})
 
-target_include_directories(BP_Ser PUBLIC ./src ../lib ../../../lib /home/marco/Repos/ACAProject2022-2023/kernels/ser/bp/./../../../HLS_arbitrary_Precision_Types/include/)
+target_include_directories(BP_Ser PUBLIC ./src ../lib ../../../lib ../../../HLS_arbitrary_Precision_Types/include/)
 
 target_link_libraries(BP_Ser ACA_LIBS_GLOBAL)
 target_link_libraries(BP_Ser ACA_LIB_BP)
